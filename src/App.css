@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Rubik+Puddles&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Poppins&family=Rubik+Puddles&display=swap');
+ .logo , .logo1 , .logo2{
+  font-family: 'Rubik Puddles', cursive!important;
+  font-size: 20px!important;
+ }
+ .body{
+  font-family: 'Poppins', sans-serif!important;
+  font-size: 17px!important;
+  font-weight:900;
+ }
+ .body1{
+  font-family: 'Poppins', sans-serif!important;
+ }
+@media(max-width:700px){
+  .nav{
+    display: none!important;
+  }
+  .but{
+    display: block!important;
+  }
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hover , .hover1{
+  transition: all 0.5s ease;
+  font-weight: 700!important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.hover:hover{
+  border-color:#e25252!important;
+}
+.hover1:hover{
+  background-color:#e25252!important;
+}
+@media(max-width:778px){
+  .img{
+    width: 700px;
+  }
+  .img1{
+    width: 550px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media(max-width:678px){
+  .img{
+    width: 600px;
   }
-  to {
-    transform: rotate(360deg);
+  .img1{
+    width: 450px;
   }
 }
+
+@media(max-width:578px){
+  .img{
+    width: 500px;
+  }
+   .img1{
+    width: 400px;
+  }
+}
+@media(max-width:478px){
+  .img{
+    width: 400px;
+  }
+  .img1{
+    width: 350px;
+  }
+}
+@media(max-width:378px){
+  .img{
+    width: 350px;
+  }
+  .img1{
+    width: 300px;
+  }
+}
+
+
+
+.carousel-item{
+  padding: 0 1.5em;
+}
+
+input:focus{outline: none!important;}
+
+::-webkit-scrollbar{
+  width: 0.5em;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #e25252;
+}
+
