@@ -29,6 +29,7 @@ const[values , setValues] = useState({
     password:'',
 })
 
+console.log(values , setValues)
 const submit = () => {
     if (!email || !password) {
       setErrorfill(true)

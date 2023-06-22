@@ -39,7 +39,7 @@ const changepass = (e)=>{
     email:"" , 
     password:"",
 })
-
+console.log(values , setValues)
 const submit = () => {
     if (!name || !email || !password || !checked) {
       setErrorfill(true)
