@@ -116,11 +116,12 @@ function DrawerAppBar(props) {
                 {item}
               </Button>
             ))}
+
           </Box>
           <Box sx={{display:"flex" , gap:"20px"}}>
           {
         !login && 
-      <Link to='/Sign' ><Button variant="outlined" sx={{borderColor:"#2f313a" , color:"#fff"}} className='hover'>Sign-up</Button></Link>   
+      <Link to='/Sign' ><Button variant="outlined" sx={{borderColor:"#2f313a" , color:"#fff" , display:{sm:"block" , xs:"none"}}} className='hover'>Sign-up</Button></Link>   
      
            }
             {
