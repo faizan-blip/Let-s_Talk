@@ -19,14 +19,16 @@ import Landing from './Landing';
 import About from './About';
 import Feature from './Feature';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Features'];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const [login , setLogin] = useState(false)
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -37,7 +39,15 @@ function DrawerAppBar(props) {
       handleDrawerToggle();
     }
   };
- 
+  useEffect(()=>{
+       if(login){
+        setLogin(true)
+       }
+       else{
+        setLogin(false)
+       }
+   
+ },[login])
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>

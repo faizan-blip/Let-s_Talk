@@ -104,13 +104,14 @@ export default function Match() {
         <Box sx={{display:"flex" , flexDirection:"column" , gap:"1em"}}>
             <Box>
         <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>Full Name</Typography>
-                    <input type="text" name="name" id="" placeholder='Enter your name' value={boyname} onChange={handleboynameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+                    <input type="text" name="name" id="boyname" placeholder='Enter your name' value={boyname} onChange={handleboynameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
                     </Box>
                     <Box>
                     <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>DOB</Typography>
                     <input
             type="date"
             value={boydob}
+            id='boydob'
             onChange={handleboyDateChange}
             min='2003-01-01'
             max='2020-01-01'
@@ -122,6 +123,7 @@ export default function Match() {
           <Select
           value={boybond}
           label="Bond"
+          id='boybond'
           onChange={handlebondboyChange}
           sx={{ color: 'white', '& .MuiSelect-root': { borderColor: 'white !important' } }}
         >
@@ -156,13 +158,14 @@ export default function Match() {
         <Box sx={{display:"flex" , flexDirection:"column" , gap:"1em"}}>
             <Box>
         <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>Full Name</Typography>
-                    <input type="text" name="name" id="" placeholder='Enter your name' value={girlname} onChange={handlegirlnameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+                    <input type="text" name="name" id="girlname" placeholder='Enter your name' value={girlname} onChange={handlegirlnameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
                     </Box>
                     <Box>
                     <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>DOB</Typography>
                     <input
             type="date"
             value={girldob}
+            id='girldob'
             onChange={handlegirlDateChange}
             min='2003-01-01'
             max='2020-01-01'
@@ -174,6 +177,7 @@ export default function Match() {
           <Select 
           value={girlbond}
           label="Bond"
+          id='girlbond'
           onChange={handlebondgirlChange}
           sx={{ color: 'white', '& .MuiSelect-root': { borderColor: 'white !important' } }}
         >
