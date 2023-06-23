@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -19,16 +19,16 @@ import Landing from './Landing';
 import About from './About';
 import Feature from './Feature';
 import { Link } from 'react-router-dom';
-import { useState , useEffect} from 'react';
+import { useState } from 'react';
+import { Appcontext } from '../Context/AppContext';
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Features'];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const [login , setLogin] = useState(false)
-
+  const {login } = useContext(Appcontext)
+  const {logout} = useContext(Appcontext)
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -39,15 +39,6 @@ function DrawerAppBar(props) {
       handleDrawerToggle();
     }
   };
-  useEffect(()=>{
-       if(login){
-        setLogin(true)
-       }
-       else{
-        setLogin(false)
-       }
-   
- },[login])
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -121,16 +112,16 @@ function DrawerAppBar(props) {
           <Box sx={{display:"flex" , gap:"20px"}}>
           {
         !login && 
-      <Link to='/Sign' ><Button variant="outlined" sx={{borderColor:"#2f313a" , color:"#fff" , display:{sm:"block" , xs:"none"}}} className='hover'>Sign-up</Button></Link>   
+      <Link to='/Sign' style={{textDecoration:"none"}} ><Button variant="outlined" sx={{borderColor:"#2f313a" , color:"#fff" , display:{sm:"block" , xs:"none"}}} className='hover'>Sign-up</Button></Link>   
      
            }
             {
         !login &&
-        <Link to='/Login'><Button variant='contained' sx={{background:"#fff" , color:"#2f313a"}} className='hover1'>Log-in</Button></Link>  
+        <Link to='/Login' style={{textDecoration:"none"}}><Button variant='contained' sx={{background:"#fff" , color:"#2f313a"}} className='hover1'>Log-in</Button></Link>  
       }
       {
         login &&
-        <Link to='/'><Button variant='contained' sx={{background:"#fff" , color:"#2f313a"}} className='hover1' >Log-out</Button></Link>  
+        <Link to='/'><Button variant='contained' onClick={logout} sx={{background:"#fff" , color:"#2f313a"}} className='hover1' >Log-out</Button></Link>  
       }
         
           </Box>

@@ -8,7 +8,10 @@ import { auth } from './Firebase'
 import Alert from '@mui/material/Alert';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-export default function Login() {
+import { useContext } from 'react'
+import { Appcontext } from '../Context/AppContext'
+export default function Login({logout}) {
+  const {setLogin} = useContext(Appcontext)
     const Navigate = useNavigate()
 const [email , setEmail]=useState('')
 const [password, setPassword] = useState('')
@@ -50,10 +53,11 @@ const submit = () => {
         displayName: email,
       });
       console.log(user)
+      setLogin(true)
     setTimeout(() => {
-      Navigate('/match')
+      Navigate('/')
     },2000);
-  
+      
       const timeout = setTimeout(() => {
         setButton(false);
       }, 2000);

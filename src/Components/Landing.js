@@ -1,12 +1,26 @@
 import { Box, Button, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import landing from './Images/couple-chatting-online-3d-character-illustration-png.png'
 import heart from './Images/heart.png'
 import couple from './Images/couple.png'
 import { Link } from 'react-router-dom'
+import { auth } from './Firebase'
+import { ToastContainer, toast } from 'react-toastify'
 export default function Landing() {
+
+// const [user[name , setUsername] = useState("")
+useEffect(()=>{
+auth.onAuthStateChanged((user)=>{
+  if(user !== null){
+    // setUsername(user.displayName)
+    toast.success(user.displayName)
+  }
+})
+},[])
+
   return (
     <>
+    <ToastContainer/>
     <Box sx={{display:"flex" , alignItems:"center" , height:{lg:"100vh" , xs:"auto"}, justifyContent:{lg:"space-between !important" , xs:"center !important"} , flexWrap:{ld:"nowrap" , xs:"wrap-reverse"} , background:"#16171f"}}>
         <Box  sx={{display:"flex"  , justifyContent:"center" , flexDirection:"column" , paddingLeft:{md:"5em" ,xs:"0.5em"} , marginBottom:"1.5em" }}>
             <img src={heart} alt="" width={50}/>

@@ -88,3 +88,16 @@ input:focus{outline: none!important;}
   background-color: #e25252;
 }
 
+input{
+  color: #e25252;
+}
+input::placeholder{
+  color: #e25252;
+}
+.select{
+  background-color:  #e25252;
+}
+.form{
+  color: #252525;
+  font-size: 17px;
+}
