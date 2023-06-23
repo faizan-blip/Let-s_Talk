@@ -124,8 +124,10 @@ export default function Match() {
       
             for (var j = 0; j < girladd.length; j++) {
               var girlData = girladd[j];
-      
-              if (boyData === girlData && boybond === girlbond) {
+        
+              if (boyData.toLowerCase === girlData.toLowerCase && boybond === girlbond) {
+                // console.log(boyData)
+                // console.log(girlData)
                 matchCount++;
                 break;
               }
@@ -155,6 +157,8 @@ export default function Match() {
         setGirlname('');
       };
           
+      // console.log("boy" + boyadd.length)
+      // console.log("girl" + girladd.length )
   return (
     <>
     <ToastContainer/>

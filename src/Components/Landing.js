@@ -12,7 +12,7 @@ const {work } = useContext(Appcontext)
 
 useEffect(()=>{
 auth.onAuthStateChanged((user)=>{
-  if(user !== null){
+  if(user.displayName !== null){
     toast.success(user.displayName)
   }
 })
