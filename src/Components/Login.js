@@ -10,8 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react'
 import { Appcontext } from '../Context/AppContext'
-export default function Login({logout}) {
-  const {setLogin} = useContext(Appcontext)
+export default function Login() {
+  const {setLogin , setWork} = useContext(Appcontext)
     const Navigate = useNavigate()
 const [email , setEmail]=useState('')
 const [password, setPassword] = useState('')
@@ -54,6 +54,7 @@ const submit = () => {
       });
       console.log(user)
       setLogin(true)
+      setWork(true)
     setTimeout(() => {
       Navigate('/')
     },2000);
@@ -114,9 +115,9 @@ const submit = () => {
                   <Typography sx={{fontSize:{sm:"17px" , xs:"15px"} , alignSelf:"center" , fontWeight:"400" , textAlign:"center" , color:"#252525"}} className='body1'>Log in with your data that you have entered during Your registration</Typography>
                   <Box sx={{padding:{lg:"0.5em 3em" , xs:"0em 0.5em"} , display:"flex" , flexDirection:"column" }}>
                     <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>Email address</Typography>
-                    <input type="email" name="email" id="" placeholder='Enter your email' required value={email} onChange={changeemail} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
+                    <input className='login' type="email" name="email" id="" placeholder='Enter your email' required value={email} onChange={changeemail} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
                     <Typography sx={{alignSelf:"start" , marginTop:"1em" , fontWeight:"700"}} className='body1'>Password</Typography>
-                    <input type="password" name="password" id="" placeholder='Enter your password' required value={password} onChange={changepass} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em" }} />
+                    <input className='login' type="password" name="password" id="" placeholder='Enter your password' required value={password} onChange={changepass} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em" }} />
                     {
         button ? (  <Button variant='contained' disabled sx={{background:'#000' , color:"#fff !important" , fontWeight:"700 !important" , width:"100%" , marginTop:"2em" , height:"3.5em"}} onClick={submit} className='body1'>Log-in</Button>)
         :

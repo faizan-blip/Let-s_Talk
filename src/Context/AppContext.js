@@ -10,14 +10,16 @@ export default function AppContextProvider({children}){
     const logout = ()=>{
         signOut(auth).then(() => {
             setLogin(false)
+            setWork(false)
             toast.success("Logout successfully")
            }).catch((error) => {
              toast.error("error occured")
            });
     }
     const[login , setLogin] = useState(false);
+    const [work , setWork] = useState(false)
     const value = {
-        login,setLogin , logout
+        login,setLogin , logout , work , setWork
     }
 
 

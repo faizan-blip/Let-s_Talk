@@ -124,11 +124,11 @@ const submit = () => {
                   <Typography sx={{fontSize:{sm:"17px" , xs:"15px"}  , alignSelf:"center" , fontWeight:"400" , textAlign:"center" , color:"#252525"}} className='body1'>Register Yourself For Free</Typography>
                   <Box sx={{padding:{lg:"0.5em 3em" , xs:"0em 0.5em"}  , display:"flex" , flexDirection:"column" }}>
                   <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>Full Name</Typography>
-                    <input type="text" name="name" id="" placeholder='Enter your name' required value={name} onChange={changename} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
+                    <input  className='sign' type="text" name="name" id="" placeholder='Enter your name' required value={name} onChange={changename} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
                     <Typography sx={{alignSelf:"start" , fontWeight:"700" , marginTop:"1em"}} className='body1'>Email address</Typography>
-                    <input type="email" name="email" id="" placeholder='Enter your email' required value={email} onChange={changeemail} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
+                    <input  className='sign' type="email" name="email" id="" placeholder='Enter your email' required value={email} onChange={changeemail} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
                     <Typography sx={{alignSelf:"start" , marginTop:"1em" , fontWeight:"700"}} className='body1'>Password</Typography>
-                    <input type="password" name="password" id="" placeholder='Enter your password' required value={password} onChange={changepass} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em" }} />
+                    <input className='sign'  type="password" name="password" id="" placeholder='Enter your password' required value={password} onChange={changepass} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em" }} />
                     <Box sx={{alignSelf:"start" , display:"flex"}}>
                     <Checkbox
       checked={checked}

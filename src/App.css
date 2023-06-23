@@ -101,3 +101,6 @@ input::placeholder{
   color: #252525;
   font-size: 17px;
 }
+.sign::placeholder , .login::placeholder , .sign , .login{
+  color: #252525!important;
+}
