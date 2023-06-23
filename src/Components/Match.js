@@ -118,7 +118,7 @@ export default function Match() {
         } else {
       
           var matchCount = 0;
-    
+      
           for (var i = 0; i < boyadd.length; i++) {
             var boyData = boyadd[i];
       
@@ -127,30 +127,34 @@ export default function Match() {
       
               if (boyData === girlData && boybond === girlbond) {
                 matchCount++;
-                break; 
+                break;
               }
             }
           }
       
-          if (matchCount > 2) {
-            toast.success("30% Match...Add more interest to increase your chance 😋")
-          } else if(matchCount > 4) {
-            setShowspin(true)
-            toast.success("Hurrayyy!!!! You got a match 😍")
-          } else{
-            toast.error("Sorry for your loss 😭")
+          if (matchCount > 4) {
+            setShowspin(true);
+            toast.success("Hurrayyy!!!! You got a match 😍");
+          } else if (matchCount > 1) {
+            setShowspin(false);
+            toast.success("30% Match...Add more interest to increase your chance 😋");
+          } else {
+            setShowspin(false);
+            toast.error("Sorry for your loss 😭");
           }
         }
       };
-      const retry = ()=>{
-        setShowspin(false)
-        setBoyDob('')
-        setGirlDob('')
-        setBoyadd([])
-        setGirladd([])
-        setBoyname('')
-        setGirlname('')
-      }      
+      
+      const retry = () => {
+        setShowspin(false);
+        setBoyDob('');
+        setGirlDob('');
+        setBoyadd([]);
+        setGirladd([]);
+        setBoyname('');
+        setGirlname('');
+      };
+          
   return (
     <>
     <ToastContainer/>
@@ -200,11 +204,11 @@ export default function Match() {
        
         <Box sx={{display:"flex" , flexDirection:"column" , gap:"1em" }}>
             <Box>
-        <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>Full Name</Typography>
+        <Typography sx={{alignSelf:"start" , fontWeight:"700" , color:"#d2d2d2"}} className='body1'>Full Name</Typography>
                     <input type="text" name="name" id="boyname" placeholder='Enter your name' value={boyname} onChange={handleboynameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
                     </Box>
                     <Box>
-                    <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>DOB</Typography>
+                    <Typography sx={{alignSelf:"start" , fontWeight:"700",color:"#d2d2d2" }} className='body1'>DOB</Typography>
                     <input
             type="date"
             value={boydob}
@@ -310,11 +314,11 @@ export default function Match() {
         </Box>
         <Box sx={{display:"flex" , flexDirection:"column" , gap:"1em"}}>
             <Box>
-        <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>Full Name</Typography>
+        <Typography sx={{alignSelf:"start" , fontWeight:"700" , color:"#d2d2d2"}} className='body1'>Full Name</Typography>
                     <input type="text" name="name" id="girlname" placeholder='Enter your name' value={girlname} onChange={handlegirlnameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
                     </Box>
                     <Box>
-                    <Typography sx={{alignSelf:"start" , fontWeight:"700"}} className='body1'>DOB</Typography>
+                    <Typography sx={{alignSelf:"start" , fontWeight:"700" ,color:"#d2d2d2"}} className='body1'>DOB</Typography>
                     <input
             type="date"
             value={girldob}
