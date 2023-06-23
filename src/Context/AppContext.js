@@ -7,15 +7,18 @@ import { toast } from "react-toastify";
 export const Appcontext = createContext();
 
 export default function AppContextProvider({children}){
-    const logout = ()=>{
-        signOut(auth).then(() => {
-            setLogin(false)
-            setWork(false)
-            toast.success("Logout successfully")
-           }).catch((error) => {
-             toast.error("error occured")
-           });
-    }
+    const logout = () => {
+        signOut(auth)
+          .then(() => {
+            setLogin(false);
+            setWork(false);
+            toast.success("Logged out successfully");
+          })
+          .catch((error) => {
+            toast.error("An error occurred while logging out");
+          });
+      };
+      
     const[login , setLogin] = useState(false);
     const [work , setWork] = useState(false)
     const value = {
