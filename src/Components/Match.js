@@ -1,4 +1,4 @@
-import { Box, Typography , Select , MenuItem, Button , Rating , IconButton } from '@mui/material'
+import { Box, Typography , Select , MenuItem, Button , Rating , IconButton , Fab } from '@mui/material'
 import React, { useState } from 'react'
 import profile from './Images/7309681-removebg-preview.png'
 import { styled } from '@mui/material/styles';
@@ -18,6 +18,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { toast , ToastContainer } from 'react-toastify';
 import { Hearts } from 'react-loader-spinner';
 import ReplayIcon from '@mui/icons-material/Replay';
+import ChatIcon from '@mui/icons-material/Chat';
 const StyledRating = styled(Rating)({
   '& .MuiRating-iconFilled': {
     color: '#ff6d75',
@@ -175,8 +176,7 @@ export default function Match() {
         wrapperClass=""
         visible={true}
       />
-      {/* <Typography sx={{fontWeight:"700" , fontSize:"20px" , color:"#f5f5f5" , textAlign:"center"}}>Chatting section <br/> <span style={{color:"#e25252"}}>Coming Soon !!</span> </Typography> */}
-     <Link to='/chat'><Button >chat</Button></Link> 
+      <Typography sx={{fontWeight:"700" , fontSize:"20px" , color:"#e25252" , textAlign:"center"}}>Match Again !!</Typography>
       <IconButton onClick={retry} ><ReplayIcon sx={{transform:"Scale(1.5)"}}/></IconButton>
       </>
       ):(
@@ -410,7 +410,10 @@ export default function Match() {
         </Box>
       </Box>
       </Box>
-      <Button className='body1' onClick={match} variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"22px" , background:"#e25252 !important", textTransform:"none"}}><FavoriteIcon/> Let's Match</Button>
+      <Box sx={{display:"flex" , gap:"0.5em" , alignItems:"center" , flexDirection:{sm:"row" , xs:"column"}}}>
+      <Button className='body1' onClick={match} variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", textTransform:"none"}}><FavoriteIcon/> Let's Match</Button>
+     </Box>
+     <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" , margin:"0 0.5em"}}> <Link to='/chat' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}><ChatIcon sx={{color:"white"}}/></Fab></Link> </Box>
       </>)
      }
  
