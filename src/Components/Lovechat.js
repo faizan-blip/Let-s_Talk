@@ -16,17 +16,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Appcontext } from '../Context/AppContext';
 import SendIcon from '@mui/icons-material/Send';
 export default function Chat() {
-  const [friendmessages, setFriendmessages] = useState([]);
+  const [lovemessages, setLovemessages] = useState([]);
 //   const scroll = useRef();
   const {user} = useContext(Appcontext)
   useEffect(() => {
-    const q = query(collection(db, 'friendmessages'), orderBy('timestamp'));
+    const q = query(collection(db, 'lovemessages'), orderBy('timestamp'));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let friendmessages = [];
+      let lovemessages = [];
       querySnapshot.forEach((doc) => {
-        friendmessages.push({ ...doc.data(), id: doc.id });
+        lovemessages.push({ ...doc.data(), id: doc.id });
       });
-      setFriendmessages(friendmessages);
+      setLovemessages(lovemessages);
     });
     return () => unsubscribe();
   }, []);
@@ -40,7 +40,7 @@ export default function Chat() {
       return;
     }
     const { uid, displayName } = auth.currentUser;
-    await addDoc(collection(db, 'friendmessages'), {
+    await addDoc(collection(db, 'lovemessages'), {
       text: input,
       name: displayName,
       uid,
@@ -58,7 +58,7 @@ export default function Chat() {
         backgroundImage:
           'radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(218.18, 39%, 11%) 0, transparent 55%)', height: '100%',
           minHeight:"100vh"}}>
-            <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" }}> <Link to='/match' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}> <img src={couple} alt="" width={40}  /></Fab></Link> </Box>
+             <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" , margin:"0 0.5em",}}> <Link to='/match' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}> <img src={couple} alt="" width={40}  /></Fab></Link> </Box>
     <Box
       sx={{
         display: 'flex',
@@ -83,14 +83,14 @@ export default function Chat() {
         >
           <Card
             sx={{
-              width: '100%',
-              borderRadius: '0 0 17px 17px',
-              display: 'flex',
-              minHeight:"8em",
-              height:"auto",
-              justifyContent: 'center',
-              backdropFilter: 'blur(16px) saturate(180%)',
-              background: 'rgba(0, 0, 0, 0.50)',
+                width: '100%',
+                borderRadius: '0 0 17px 17px',
+                display: 'flex',
+                minHeight:"8em",
+                height:"auto",
+                justifyContent: 'center',
+                backdropFilter: 'blur(16px) saturate(180%)',
+                background: 'rgba(0, 0, 0, 0.50)',
             }}
           >
             <CardContent
@@ -103,7 +103,7 @@ export default function Chat() {
             >
               <Box sx={{ display: 'flex', gap: '0.2em', alignItems: 'center' }}>
                 <Avatar />
-                <Typography className='body1' sx={{ color: 'white', fontSize:{sm:"18px" , xs:"17px"} }}>
+                <Typography className='body1' sx={{ color: 'white',  fontSize:{sm:"18px" , xs:"17px"} }}>
                   {user.displayName}
                 </Typography>
               </Box>
@@ -116,7 +116,7 @@ export default function Chat() {
                   whiteSpace: 'nowrap',
                 }}
               >
-                Chat with your Friend one's
+                Chat with your Loved one's
               </Typography>
             </CardContent>
           </Card>
@@ -133,15 +133,15 @@ export default function Chat() {
             }}
             className='over'
           >
-            {friendmessages &&
-              friendmessages.map((friendmessage) => (
+            {lovemessages &&
+              lovemessages.map((lovemessages) => (
                 <Box
-                  key={friendmessage.id}
+                  key={lovemessages.id}
                   sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems:
-                      friendmessage.uid === auth.currentUser.uid ? 'flex-end !important' : 'flex-start !important',
+                    lovemessages.uid === auth.currentUser.uid ? 'flex-end !important' : 'flex-start !important',
                     width: '100%',
                   }}
                 >
@@ -149,30 +149,30 @@ export default function Chat() {
                     className='body1'
                     sx={{ alignSelf: 'center !important', margin: '0.5em 0' }}
                   >
-                    {friendmessage.timestamp && friendmessage.timestamp.toDate().toLocaleTimeString()}
+                    {lovemessages.timestamp &&lovemessages.timestamp.toDate().toLocaleTimeString()}
                   </Typography>
                   <Typography className='body1' sx={{ margin: '0 0.5em' , color:"#d2d2d2" , opacity:"0.7" }}>
-                    {friendmessage.name}
+                    {lovemessages.name}
                   </Typography>
                   <Typography
                     sx={{
-                      background: friendmessage.uid === auth.currentUser.uid ? '#e25252' : 'grey',
+                      background: lovemessages.uid === auth.currentUser.uid ? '#e25252' : 'grey',
                       color: 'white',
                       padding: '10px',
                       borderRadius:
-                      friendmessage.uid === auth.currentUser.uid
+                      lovemessages.uid === auth.currentUser.uid
                           ? '10px 7px 0 10px'
                           : '10px 7px 10px 0',
                       margin: '0 0.5em',
                     }}
                     className='body1'
                   >
-                    {friendmessage.text}
+                    {lovemessages.text}
                   </Typography>
                 </Box>
               ))}
           </Box>
-          <Box sx={{ display: 'flex', width:"100%", alignItems: 'center' , minHeight:{sm:"4em", xs:"3.5em"} }}>
+          <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' ,  minHeight:{sm:"4em", xs:"3.5em"}   }}>
             <input
               className='body1 login form'
               onChange={(e) => setInput(e.target.value)}

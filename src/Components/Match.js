@@ -160,6 +160,21 @@ export default function Match() {
           
       // console.log("boy" + boyadd.length)
       // console.log("girl" + girladd.length )
+
+
+
+      const [openmessage , setOpenmessage] = useState(false)
+
+
+      const dialog = ()=>{
+        setOpenmessage(true)
+      }
+
+      const closemess = ()=>{
+        setOpenmessage(false)
+      }
+ 
+
   return (
     <>
     <ToastContainer/>
@@ -231,14 +246,19 @@ export default function Match() {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        
+        PaperProps={{
+          sx: {
+            backgroundColor: '#e25252',
+     
+          },
+        }}
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" sx={{color:"white"}}>
           {"Boy your Interest 🤔"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <input  onChange={(e)=> setInterestboy(e.target.value)} value={interestboy} type='text' className='form body1' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+            <input  onChange={(e)=> setInterestboy(e.target.value)} value={interestboy} type='text' className='form body1' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%" , color:"white !important"}} />
            <Box sx={{display:"flex" , flexWrap:"wrap" , gap:"0.2em" , width:"15em" , justifyContent:"center"}}>
             {
   boyadd.map((interestboy, index) => (
@@ -259,8 +279,8 @@ export default function Match() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button className='body1' variant='outlined' sx={{borderColor:"#252525 !important" , color:"#e25252" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose}>Close</Button>
-          <Button className='body1' onClick={addmore} variant='contained' sx={{background:"#252525 !important" ,color:"#e25252" , fontWeight:"700" , textTransform:"none"}} >
+          <Button className='body1' variant='outlined' sx={{borderColor:"#252525 !important" , color:"#fff" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose}>Close</Button>
+          <Button className='body1' onClick={addmore} variant='contained' sx={{background:"#252525 !important" ,color:"#fff" , fontWeight:"700" , textTransform:"none"}} >
             Add More
           </Button>
         </DialogActions>
@@ -342,14 +362,19 @@ export default function Match() {
         onClose={handleClose1}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-        
+        PaperProps={{
+          sx: {
+            backgroundColor: '#e25252',
+     
+          },
+        }}
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" sx={{color:"white"}}>
           {"Girl your Interest 🤔"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <input onChange={(e)=> setInterestgirl(e.target.value)} value={interestgirl} type='text' className='form body1' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+            <input onChange={(e)=> setInterestgirl(e.target.value)} value={interestgirl} type='text' className='form body1' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%" , color:"white !important"}} />
            <Box sx={{display:"flex" , flexWrap:"wrap" , gap:"0.2em" , width:"15em" , justifyContent:"center"}}>
             {
   girladd.map((interestgirl, index1) => (
@@ -370,8 +395,8 @@ export default function Match() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button className='body1' variant='outlined' sx={{borderColor:"#252525 !important" , color:"#e25252" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose1}>Close</Button>
-          <Button className='body1' onClick={addmore1} variant='contained' sx={{background:"#252525 !important" ,color:"#e25252" , fontWeight:"700" , textTransform:"none"}} >
+          <Button className='body1' variant='outlined' sx={{borderColor:"#252525 !important" , color:"#fff" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose1}>Close</Button>
+          <Button className='body1' onClick={addmore1} variant='contained' sx={{background:"#252525 !important" ,color:"#fff" , fontWeight:"700" , textTransform:"none"}} >
             Add More
           </Button>
         </DialogActions>
@@ -413,7 +438,30 @@ export default function Match() {
       <Box sx={{display:"flex" , gap:"0.5em" , alignItems:"center" , flexDirection:{sm:"row" , xs:"column"}}}>
       <Button className='body1' onClick={match} variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", textTransform:"none"}}><FavoriteIcon/> Let's Match</Button>
      </Box>
-     <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" , margin:"0 0.5em"}}> <Link to='/chat' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}><ChatIcon sx={{color:"white"}}/></Fab></Link> </Box>
+     <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" , margin:"0 0.5em"}}><Fab onClick={dialog} className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}><ChatIcon sx={{color:"white"}}/></Fab></Box>
+      <Dialog
+      open={openmessage}
+      onClose={closemess}
+      PaperProps={{
+        sx: {
+          backgroundColor: 'black',
+   
+        },
+      }}
+      >
+<DialogContent>
+     <DialogContentText className='body1' sx={{fontSize:"18px" , fontWeight:"700" , color:"white"}}>
+      Start a Chat by selecting the room
+     </DialogContentText>
+     <Box  sx={{display:"flex" , justifyContent:"center" , alignItems:"center" , marginTop:"2em" , gap:"0.5em"}}>
+   <Link to='/lovechat'> <Button variant='contained' className='body1' sx={{background:"#e25252 !important" , fontWeight:"700" , fontSize:"17px"}}>Love</Button></Link>
+   <Link to='/friendchat'><Button variant='contained' className='body1' sx={{background:"#e25252 !important" , fontWeight:"700" , fontSize:"17px"}}>Friends</Button></Link> 
+     </Box>
+</DialogContent>
+<DialogActions>
+  <Button onClick={closemess} sx={{color:"#fff"}}>Close</Button>
+</DialogActions>
+      </Dialog>
       </>)
      }
  

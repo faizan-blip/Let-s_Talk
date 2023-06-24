@@ -7,6 +7,7 @@ import Match from './Components/Match';
 import { Route, Routes } from 'react-router-dom';
 import Chat from './Components/Chat';
 import Error from './Components/Error';
+import Lovechat from './Components/Lovechat';
 function App() {
   return (
 <Routes>
@@ -15,8 +16,9 @@ function App() {
 <Route  exact path='/Login' element={<Login/>}/>
 <Route  exact path='/Sign' element={<Sign/>}/>
 <Route  exact path='/match' element={<Match/>}/>
-<Route exact path='/chat' element={<Chat/>}/> 
+<Route exact path='/friendchat' element={<Chat/>}/> 
 <Route exact path='/error' element={<Error/>}/> 
+<Route exact path='/lovechat' element={<Lovechat/>}/>
   </>
   </Routes>
   );
