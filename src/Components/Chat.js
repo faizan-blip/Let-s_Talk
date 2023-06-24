@@ -103,14 +103,14 @@ export default function Chat() {
             >
               <Box sx={{ display: 'flex', gap: '0.2em', alignItems: 'center' }}>
                 <Avatar />
-                <Typography className='body1' sx={{ color: 'white', fontSize:{sm:"18px" , xs:"17px"} }}>
+                <Typography className='body1' sx={{ color: '#000', fontSize:{sm:"18px" , xs:"17px"} }}>
                   {user.displayName}
                 </Typography>
               </Box>
               <Typography
                 className='logo'
                 sx={{
-                  color: 'white',
+                  color: '#000',
                   fontWeight: '700',
                   fontSize: { sm: '29px !important', xs: '20px !important' },
                   whiteSpace: 'nowrap',
@@ -151,7 +151,7 @@ export default function Chat() {
                   >
                     {friendmessage.timestamp && friendmessage.timestamp.toDate().toLocaleTimeString()}
                   </Typography>
-                  <Typography className='body1' sx={{ margin: '0 0.5em' , color:"#d2d2d2" , opacity:"0.7" }}>
+                  <Typography className='body1' sx={{ margin: '0 0.5em' , color:"#252525" , opacity:"0.7" }}>
                     {friendmessage.name}
                   </Typography>
                   <Typography
