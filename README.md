@@ -1,1 +1,1 @@
-Developed a visually appealing and user-friendly dating website using react-js that includes features such as a match section with likelihood indication and integrated chat functionality. The website incorporates secure user authentication using Firebase for seamless login and signup processes.
+site with match section, enhancing user connections based on likelihood.Integrated Firebase for secure user authentication, enabling seamless login and signup with Google Authentication and created separate chat rooms for love and friends, facilitating meaningful interactions.
