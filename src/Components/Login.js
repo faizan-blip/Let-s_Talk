@@ -10,8 +10,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react'
 import { Appcontext } from '../Context/AppContext'
+import GoogleIcon from '@mui/icons-material/Google';
 export default function Login() {
-  const {setLogin , setWork} = useContext(Appcontext)
+
+  const { signin} = useContext(Appcontext)
     const Navigate = useNavigate()
 const [email , setEmail]=useState('')
 const [password, setPassword] = useState('')
@@ -47,14 +49,12 @@ const submit = () => {
     signInWithEmailAndPassword(auth, email, password)
     .then(async(res) => {
       setButton(true);
-      toast.success('Logged in successfully');
       const user = res.user;
       await updateProfile(user, {
         displayName: email,
       });
       console.log(user)
-      setLogin(true)
-      setWork(true)
+      toast.success("Login Successfully" + user.displayName)
     setTimeout(() => {
       Navigate('/')
     },2000);
@@ -118,11 +118,14 @@ const submit = () => {
                     <input className='login' type="email" name="email" id="" placeholder='Enter your email' required value={email} onChange={changeemail} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em"}} />
                     <Typography sx={{alignSelf:"start" , marginTop:"1em" , fontWeight:"700"}} className='body1'>Password</Typography>
                     <input className='login' type="password" name="password" id="" placeholder='Enter your password' required value={password} onChange={changepass} style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%",marginTop:"0.5em" }} />
+                   <Box sx={{display:"flex", gap:{sm:"0.5em" ,xs:"0em"} , width:"100%" , flexDirection:{sm:"row"  ,xs:"column"}}}>
                     {
-        button ? (  <Button variant='contained' disabled sx={{background:'#000' , color:"#fff !important" , fontWeight:"700 !important" , width:"100%" , marginTop:"2em" , height:"3.5em"}} onClick={submit} className='body1'>Log-in</Button>)
+        button ? (  <Button variant='contained' disabled sx={{background:'#000' , color:"#fff !important" , fontWeight:"700 !important" , width:{sm:"35%" , xs:"100%"} , marginTop:"2em" , height:"3.5em"}} onClick={submit} className='body1'>Log-in</Button>)
         :
-        (  <Button variant='contained' sx={{background:'#000 !important' , color:"#fff !important" , fontWeight:"700 !important" , width:"100%" , marginTop:"2em" , height:"3.5em"}} onClick={submit} className='body1'>Log-in</Button>)
+        (  <Button variant='contained' sx={{background:'#000 !important' , color:"#fff !important" , fontWeight:"700 !important", width:{sm:"35%" , xs:"100%"} , marginTop:"2em" , height:"3.5em"}} onClick={submit} className='body1'>Log-in</Button>)
     }
+   <Button  variant='contained' sx={{fontWeight:"700 !important" , width:{sm:"65%" , xs:"100%"} , marginTop:{sm:"2em" , xs:"0.5em"} , height:"3.5em" , display:"flex" , gap:"0.5em" }} onClick={signin} className='body1'> <GoogleIcon sx={{color:"#fff"}}/> Sign-In with Google</Button>
+    </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', marginTop: '2em' }}>
       <Box sx={{ flexGrow: 1 }}>
         <Divider />

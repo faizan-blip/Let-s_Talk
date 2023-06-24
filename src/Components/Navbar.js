@@ -27,8 +27,7 @@ const navItems = ['Home', 'About', 'Features'];
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const {login } = useContext(Appcontext)
-  const {logout} = useContext(Appcontext)
+  const { user , logout} = useContext(Appcontext)
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -111,16 +110,16 @@ function DrawerAppBar(props) {
           </Box>
           <Box sx={{display:"flex" , gap:"20px"}}>
           {
-        !login && 
+        !user && 
       <Link to='/Sign' style={{textDecoration:"none"}} ><Button variant="outlined" sx={{borderColor:"#2f313a" , color:"#fff" , display:{sm:"block" , xs:"none"}}} className='hover'>Sign-up</Button></Link>   
      
            }
             {
-        !login &&
+        !user&&
         <Link to='/Login' style={{textDecoration:"none"}}><Button variant='contained' sx={{background:"#fff" , color:"#2f313a"}} className='hover1'>Log-in</Button></Link>  
       }
       {
-        login &&
+        user &&
         <Link to='/'><Button variant='contained' onClick={logout} sx={{background:"#fff" , color:"#2f313a"}} className='hover1' >Log-out</Button></Link>  
       }
         

@@ -1,28 +1,42 @@
-import { createContext, useState } from "react";
-import { auth } from "../Components/Firebase";
+import { createContext} from "react";
+import { auth , google } from "../Components/Firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
-
-
+import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
 export const Appcontext = createContext();
 
 export default function AppContextProvider({children}){
+    const Navigate = useNavigate()
     const logout = () => {
         signOut(auth)
           .then(() => {
-            setLogin(false);
-            setWork(false);
             toast.success("Logged out successfully");
           })
           .catch((error) => {
             toast.error("An error occurred while logging out");
           });
       };
+
+      const[user] = useAuthState(auth)
+      console.log(user)
+
+      const signin = async()=>{
+        try{
+     const res = await signInWithPopup(auth , google)
+     console.log(res)
+   setTimeout(() => {
+     Navigate('/')
+   },2000);
+      }catch(err){
+        const error = err.message
+        toast.error(error)
+      }
+    }
       
-    const[login , setLogin] = useState(false);
-    const [work , setWork] = useState(false)
     const value = {
-        login,setLogin , logout , work , setWork
+     logout , signin , user
     }
 
 

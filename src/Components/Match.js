@@ -175,7 +175,8 @@ export default function Match() {
         wrapperClass=""
         visible={true}
       />
-      <Typography sx={{fontWeight:"700" , fontSize:"20px" , color:"#f5f5f5" , textAlign:"center"}}>Chatting section <br/> <span style={{color:"#e25252"}}>Coming Soon !!</span> </Typography>
+      {/* <Typography sx={{fontWeight:"700" , fontSize:"20px" , color:"#f5f5f5" , textAlign:"center"}}>Chatting section <br/> <span style={{color:"#e25252"}}>Coming Soon !!</span> </Typography> */}
+     <Link to='/chat'><Button >chat</Button></Link> 
       <IconButton onClick={retry} ><ReplayIcon sx={{transform:"Scale(1.5)"}}/></IconButton>
       </>
       ):(
@@ -209,11 +210,12 @@ export default function Match() {
         <Box sx={{display:"flex" , flexDirection:"column" , gap:"1em" }}>
             <Box>
         <Typography sx={{alignSelf:"start" , fontWeight:"700" , color:"#d2d2d2"}} className='body1'>Full Name</Typography>
-                    <input type="text" name="name" id="boyname" placeholder='Enter your name' value={boyname} onChange={handleboynameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+                    <input className='body1' type="text" name="name" id="boyname" placeholder='Enter your name' value={boyname} onChange={handleboynameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
                     </Box>
                     <Box>
                     <Typography sx={{alignSelf:"start" , fontWeight:"700",color:"#d2d2d2" }} className='body1'>DOB</Typography>
                     <input
+                    className='body1'
             type="date"
             value={boydob}
             id='boydob'
@@ -236,7 +238,7 @@ export default function Match() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <input onChange={(e)=> setInterestboy(e.target.value)} value={interestboy} type='text' className='form' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+            <input  onChange={(e)=> setInterestboy(e.target.value)} value={interestboy} type='text' className='form body1' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
            <Box sx={{display:"flex" , flexWrap:"wrap" , gap:"0.2em" , width:"15em" , justifyContent:"center"}}>
             {
   boyadd.map((interestboy, index) => (
@@ -257,8 +259,8 @@ export default function Match() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant='outlined' sx={{borderColor:"#252525 !important" , color:"#e25252" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose}>Close</Button>
-          <Button onClick={addmore} variant='contained' sx={{background:"#252525 !important" ,color:"#e25252" , fontWeight:"700" , textTransform:"none"}} >
+          <Button className='body1' variant='outlined' sx={{borderColor:"#252525 !important" , color:"#e25252" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose}>Close</Button>
+          <Button className='body1' onClick={addmore} variant='contained' sx={{background:"#252525 !important" ,color:"#e25252" , fontWeight:"700" , textTransform:"none"}} >
             Add More
           </Button>
         </DialogActions>
@@ -267,7 +269,7 @@ export default function Match() {
             {
   boyadd.map((interestboy, index) => (
     <Box sx={{ background:"#f5f5f5" , border:"1px solid black"  , borderRadius:"8px"  , display:"flex"  ,alignItems:"center" , gap:"0.2em"}}>
-    <Typography sx={{textAlign:"center", fontWeight:"700" , paddingLeft:"0.3em"}} key={index}>{interestboy}</Typography>
+    <Typography className='body1' sx={{textAlign:"center", fontWeight:"700" , paddingLeft:"0.3em"}} key={index}>{interestboy}</Typography>
     <IconButton
         onClick={() => {
           setBoyadd((prevBoyadd) =>
@@ -289,9 +291,9 @@ export default function Match() {
           sx={{ color: 'white', '& .MuiSelect-root': { borderColor: 'white !important' } }}
           className='select'
         >
-          <MenuItem value={10}>Romantic Bond</MenuItem>
-          <MenuItem value={20}>Sexual Bond</MenuItem>
-          <MenuItem value={30}>Endure Bond</MenuItem>
+          <MenuItem  className='body1' value={10}>Romantic Bond</MenuItem>
+          <MenuItem className='body1' value={20}>Sexual Bond</MenuItem>
+          <MenuItem className='body1' value={30}>Endure Bond</MenuItem>
         </Select>
           </Box>
         </Box>
@@ -314,16 +316,17 @@ export default function Match() {
                 <img src={profile1} alt="" width={200} />
             )
         }
-        <input type="file" style={{display:"none"}} ref={handleref1} onChange={handlechange1} />
+        <input className='body1' type="file" style={{display:"none"}} ref={handleref1} onChange={handlechange1} />
         </Box>
         <Box sx={{display:"flex" , flexDirection:"column" , gap:"1em"}}>
             <Box>
-        <Typography sx={{alignSelf:"start" , fontWeight:"700" , color:"#d2d2d2"}} className='body1'>Full Name</Typography>
-                    <input type="text" name="name" id="girlname" placeholder='Enter your name' value={girlname} onChange={handlegirlnameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+        <Typography className='body1' sx={{alignSelf:"start" , fontWeight:"700" , color:"#d2d2d2"}} >Full Name</Typography>
+                    <input className='body1' type="text" name="name" id="girlname" placeholder='Enter your name' value={girlname} onChange={handlegirlnameChange} required style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
                     </Box>
                     <Box>
-                    <Typography sx={{alignSelf:"start" , fontWeight:"700" ,color:"#d2d2d2"}} className='body1'>DOB</Typography>
+                    <Typography className='body1' sx={{alignSelf:"start" , fontWeight:"700" ,color:"#d2d2d2"}} >DOB</Typography>
                     <input
+                    className='body1'
             type="date"
             value={girldob}
             id='girldob'
@@ -333,7 +336,7 @@ export default function Match() {
             style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%" }}
           />
           </Box>
-          <Typography sx={{display:"flex" , alignItems:"center" , gap:"5px" , color:"white" , fontWeight:"700" , alignSelf:"center"}} className='body1'> <IconButton onClick={girlopen}><DataSaverOnIcon sx={{color:"white"}}/></IconButton> Add Interest</Typography>
+          <Typography className='body1' sx={{display:"flex" , alignItems:"center" , gap:"5px" , color:"white" , fontWeight:"700" , alignSelf:"center"}}> <IconButton onClick={girlopen}><DataSaverOnIcon sx={{color:"white"}}/></IconButton> Add Interest</Typography>
           <Dialog
         open={open1}
         onClose={handleClose1}
@@ -346,12 +349,12 @@ export default function Match() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <input onChange={(e)=> setInterestgirl(e.target.value)} value={interestgirl} type='text' className='form' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
+            <input onChange={(e)=> setInterestgirl(e.target.value)} value={interestgirl} type='text' className='form body1' style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}} />
            <Box sx={{display:"flex" , flexWrap:"wrap" , gap:"0.2em" , width:"15em" , justifyContent:"center"}}>
             {
   girladd.map((interestgirl, index1) => (
     <Box sx={{background:"#f5f5f5" , border:"1px solid black"  , borderRadius:"8px" , marginTop:"1em" , display:"flex"  ,alignItems:"center" , gap:"0.2em"}}>
-    <Typography sx={{textAlign:"center", fontWeight:"700" , paddingLeft:"0.3em"}} key={index1}>{interestgirl}</Typography>
+    <Typography className='body1' sx={{textAlign:"center", fontWeight:"700" , paddingLeft:"0.3em"}} key={index1}>{interestgirl}</Typography>
     <IconButton
         onClick={() => {
           setGirladd((prevGirladd) =>
@@ -367,8 +370,8 @@ export default function Match() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant='outlined' sx={{borderColor:"#252525 !important" , color:"#e25252" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose1}>Close</Button>
-          <Button onClick={addmore1} variant='contained' sx={{background:"#252525 !important" ,color:"#e25252" , fontWeight:"700" , textTransform:"none"}} >
+          <Button className='body1' variant='outlined' sx={{borderColor:"#252525 !important" , color:"#e25252" , fontWeight:"700" , textTransform:"none"}} onClick={handleClose1}>Close</Button>
+          <Button className='body1' onClick={addmore1} variant='contained' sx={{background:"#252525 !important" ,color:"#e25252" , fontWeight:"700" , textTransform:"none"}} >
             Add More
           </Button>
         </DialogActions>
@@ -377,7 +380,7 @@ export default function Match() {
             {
   girladd.map((interestgirl, index1) => (
     <Box sx={{background:"#f5f5f5" , border:"1px solid black"  , borderRadius:"8px"  , display:"flex"  ,alignItems:"center" , gap:"0.2em"}}>
-    <Typography sx={{textAlign:"center", fontWeight:"700" , paddingLeft:"0.3em"}} key={index1}>{interestgirl}</Typography>
+    <Typography className='body1' sx={{textAlign:"center", fontWeight:"700" , paddingLeft:"0.3em"}} key={index1}>{interestgirl}</Typography>
     <IconButton
         onClick={() => {
           setGirladd((prevGirladd) =>
@@ -399,15 +402,15 @@ export default function Match() {
           sx={{ color: 'white', '& .MuiSelect-root': { borderColor: 'white !important' } }}
           className='select'
         >
-          <MenuItem value={10}>Romantic Bond</MenuItem>
-          <MenuItem value={20}>Sexual Bond</MenuItem>
-          <MenuItem value={30}>Endure Bond</MenuItem>
+          <MenuItem className='body1' value={10}>Romantic Bond</MenuItem>
+          <MenuItem className='body1' value={20}>Sexual Bond</MenuItem>
+          <MenuItem className='body1' value={30}>Endure Bond</MenuItem>
         </Select>
           </Box>
         </Box>
       </Box>
       </Box>
-      <Button onClick={match} variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"22px" , background:"#e25252 !important", textTransform:"none"}}><FavoriteIcon/> Let's Match</Button>
+      <Button className='body1' onClick={match} variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"22px" , background:"#e25252 !important", textTransform:"none"}}><FavoriteIcon/> Let's Match</Button>
       </>)
      }
  
