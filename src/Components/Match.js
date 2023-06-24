@@ -220,7 +220,7 @@ export default function Match() {
             value={boydob}
             id='boydob'
             onChange={handleboyDateChange}
-            min='2003-01-01'
+            min='2000-01-01'
             max='2020-01-01'
             style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%"}}
           />
@@ -331,7 +331,7 @@ export default function Match() {
             value={girldob}
             id='girldob'
             onChange={handlegirlDateChange}
-            min='2003-01-01'
+            min='2000-01-01'
             max='2020-01-01'
             style={{border:"none" , background:"none" , boxShadow:"0px 4px 4px rgba(0, 0, 0, 0.25)" , height:"3em" , width:"100%" }}
           />

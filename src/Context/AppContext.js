@@ -34,9 +34,17 @@ export default function AppContextProvider({children}){
         toast.error(error)
       }
     }
-      
+    
+    const nav = ()=>{
+        if(user){
+        Navigate('/match')
+        } else{
+            Navigate('/error')
+        }
+    }
+
     const value = {
-     logout , signin , user
+     logout , signin , user , nav
     }
 
 

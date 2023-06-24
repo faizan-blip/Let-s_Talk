@@ -1,5 +1,7 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
-import { Button, Box, Typography , Card , CardContent , Avatar } from '@mui/material';
+import React, { useState, useEffect, useContext } from 'react';
+import { Button, Box, Typography , Card , CardContent , Avatar , Fab } from '@mui/material';
+import { Link } from 'react-router-dom';
+import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 import {
   addDoc,
   collection,
@@ -12,9 +14,10 @@ import { auth, db } from './Firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import { Appcontext } from '../Context/AppContext';
 import SendIcon from '@mui/icons-material/Send';
+import Error from './Error';
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-  const scroll = useRef();
+//   const scroll = useRef();
   const {user} = useContext(Appcontext)
   useEffect(() => {
     const q = query(collection(db, 'messages'), orderBy('timestamp'));
@@ -44,25 +47,28 @@ export default function Chat() {
       timestamp: serverTimestamp(),
     });
     setInput('');
-    scroll.current.scrollIntoView({ behavior: 'smooth' });
+    // scroll.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
   <>
     <ToastContainer />
+    {user ? (
+        <Box sx={{ backgroundColor: '#111927',
+        backgroundImage:
+          'radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(218.18, 39%, 11%) 0, transparent 55%)', height: '100%',
+          minHeight:"100vh",}}>
+             <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" , margin:"0 0.5em",}}> <Link to='/' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}><OtherHousesIcon sx={{color:"white"}}/></Fab></Link> </Box>
     <Box
       sx={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
-        backgroundColor: '#111927',
-        backgroundImage:
-          'radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(218.18, 39%, 11%) 0, transparent 55%)',
-        padding: '2em 1em',
+        padding: '1em 1em',
+        overflow:"hidden",
       }}
     >
-      {user ? (
+   
         <Box
           sx={{
             display: 'flex',
@@ -84,6 +90,7 @@ export default function Chat() {
               justifyContent: 'center',
               backdropFilter: 'blur(16px) saturate(180%)',
               background: 'rgba(0, 0, 0, 0.50)',
+              padding:"2em 0"
             }}
           >
             <CardContent
@@ -121,8 +128,10 @@ export default function Chat() {
             //   justifyContent: 'flex-end',/
               flexGrow: 1,
               overflowY: 'auto',
-              width:"100%"
+              width:"100%",
+              marginBottom:"1em"
             }}
+            className='over'
           >
             {messages &&
               messages.map((message) => (
@@ -163,7 +172,7 @@ export default function Chat() {
                 </Box>
               ))}
           </Box>
-          <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' , height:"3em" }}>
+          <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' , height:"4em" }}>
             <input
               className='body1 login form'
               onChange={(e) => setInput(e.target.value)}
@@ -182,17 +191,17 @@ export default function Chat() {
               className='body1'
               variant='contained'
               onClick={sendMessage}
-              sx={{ width: '15%', background: '#e25252 !important',height:"100%" }}
+              sx={{ width: '15%', background: '#e25252 !important',height:"100%" , borderRadius:"0 10px 10px 0" }}
             >
               <SendIcon />
             </Button>
           </Box>
-          <Typography ref={scroll} />
         </Box>
+        </Box> 
+      </Box>
       ) : (
-        <Box>error</Box>
+        <Error/>
       )}
-    </Box>
   </>
 );
       }

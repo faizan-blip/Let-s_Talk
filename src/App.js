@@ -6,6 +6,7 @@ import Sign from './Components/Sign';
 import Match from './Components/Match';
 import { Route, Routes } from 'react-router-dom';
 import Chat from './Components/Chat';
+import Error from './Components/Error';
 function App() {
   return (
 <Routes>
@@ -15,6 +16,7 @@ function App() {
 <Route  exact path='/Sign' element={<Sign/>}/>
 <Route  exact path='/match' element={<Match/>}/>
 <Route exact path='/chat' element={<Chat/>}/> 
+<Route exact path='/error' element={<Error/>}/> 
   </>
   </Routes>
   );

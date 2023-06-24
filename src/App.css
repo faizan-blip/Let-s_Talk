@@ -119,3 +119,9 @@ input::placeholder{
     transform: translate(0, 0);
   }
 }
+
+
+.over ::-webkit-scrollbar{
+  background: none!important;
+  display: none!important;
+}
