@@ -55,6 +55,9 @@
    .img1{
     width: 400px;
   }
+  .error{
+    width: 400px;
+  }
 }
 @media(max-width:478px){
   .img{
@@ -63,12 +66,18 @@
   .img1{
     width: 350px;
   }
+  .error{
+    width: 350px;
+  }
 }
 @media(max-width:378px){
   .img{
     width: 350px;
   }
   .img1{
+    width: 300px;
+  }
+  .error{
     width: 300px;
   }
 }
