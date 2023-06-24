@@ -90,7 +90,6 @@ export default function Chat() {
               justifyContent: 'center',
               backdropFilter: 'blur(16px) saturate(180%)',
               background: 'rgba(0, 0, 0, 0.50)',
-              padding:"2em 0"
             }}
           >
             <CardContent
@@ -99,6 +98,7 @@ export default function Chat() {
                 gap: '0.5em',
                 alignItems: 'center',
                 flexDirection: 'column-reverse',
+                marginTop:"5em"
               }}
             >
               <Box sx={{ display: 'flex', gap: '0.2em', alignItems: 'center' }}>
@@ -151,7 +151,7 @@ export default function Chat() {
                   >
                     {message.timestamp && message.timestamp.toDate().toLocaleTimeString()}
                   </Typography>
-                  <Typography className='body1' sx={{ margin: '0 0.5em' }}>
+                  <Typography className='body1' sx={{ margin: '0 0.5em' , color:"#d2d2d2" , opacity:"0.7" }}>
                     {message.name}
                   </Typography>
                   <Typography
@@ -172,7 +172,7 @@ export default function Chat() {
                 </Box>
               ))}
           </Box>
-          <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' , height:"4em" }}>
+          <Box sx={{ display: 'flex', width: '100%', alignItems: 'center' , height:"5em" }}>
             <input
               className='body1 login form'
               onChange={(e) => setInput(e.target.value)}
