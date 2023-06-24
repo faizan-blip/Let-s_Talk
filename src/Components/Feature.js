@@ -11,8 +11,8 @@ export default function Feature() {
       const data = [
         { id: 1, image: lap  , name:"Create Account"},
         { id: 2, image: lover ,name:"Go to Match"  },
-        { id: 3, image: fill , name:"Fill your Details" },
-        { id: 4, image: chat  , name:"Chance to get chat"},
+        { id: 3, image: fill , name:"Fill your Details, chance to get Match" },
+        { id: 4, image: chat  , name:"Get Chat with room's"},
       ];
     
   return (
@@ -22,7 +22,7 @@ export default function Feature() {
       <Box sx={{display:"flex" , justifyContent:"center" , alignItems:"center" , gap:"1.5em", flexWrap:"wrap" , width:{xl:"90%" , xs:"auto"}}}>
      {
       data.map((dataid)=>(
-        <Box key={dataid.id} sx={{display:"flex" , flexDirection:"column" , justifyContent:"center" , alignItems:"center" , padding:"0.5em 0.5em" , height:"100%" , width:"auto" , minWidth:"15em"  , background:"white",boxShadow:"0px 5px 39px rgba(0, 0, 0, 0.25)", color:"black" , gap:"1em" , borderRadius:"10px" }}>
+        <Box key={dataid.id} sx={{display:"flex" , flexDirection:"column" , justifyContent:"center" , alignItems:"center" , padding:"0.5em 0.5em" , height:"100%" , width:"auto" , minWidth:"20em"  , background:"white",boxShadow:"0px 5px 39px rgba(0, 0, 0, 0.25)", color:"black" , gap:"1em" , borderRadius:"10px" }}>
               <img src={dataid.image} alt="" width={50} />
               <Typography sx={{fontSize:"18px" , fontWeight:"700"}}>{dataid.name}</Typography>
         </Box>

@@ -54,9 +54,9 @@ export default function Chat() {
   <>
     <ToastContainer />
     {user ? (
-        <Box sx={{ backgroundColor: '#111927',
-        backgroundImage:
-          'radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(218.18, 39%, 11%) 0, transparent 55%)', height: '100%',
+        <Box sx={{ backgroundColor: "#bdc3d1",
+            backgroundImage: 
+                "radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(240.00, 21%, 80%) 0, transparent 55%)", height: '100%',
           minHeight:"100vh"}}>
             <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" }}> <Link to='/match' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}> <img src={couple} alt="" width={40}  /></Fab></Link> </Box>
     <Box
@@ -78,7 +78,7 @@ export default function Chat() {
             alignItems: 'center',
             justifyContent: 'space-between',
             backdropFilter: 'blur(16px) saturate(180%)',
-            background: 'rgba(0, 0, 0, 0.50)',
+            background: 'rgba(188, 189, 201, 0.75)',
           }}
         >
           <Card
@@ -90,7 +90,7 @@ export default function Chat() {
               height:"auto",
               justifyContent: 'center',
               backdropFilter: 'blur(16px) saturate(180%)',
-              background: 'rgba(0, 0, 0, 0.50)',
+              background: 'rgba(188, 189, 201, 0.75)',
             }}
           >
             <CardContent
