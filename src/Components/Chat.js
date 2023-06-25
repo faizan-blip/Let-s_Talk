@@ -1,64 +1,28 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Button, Box, Typography , Card , CardContent , Avatar , Fab } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { InfinitySpin } from 'react-loader-spinner';
 import couple from './Images/couple.png'
-import {
-  addDoc,
-  collection,
-  onSnapshot,
-  orderBy,
-  query,
-  serverTimestamp,
-} from 'firebase/firestore';
-import { auth, db } from './Firebase';
-import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { auth,} from './Firebase';
+import { ToastContainer} from 'react-toastify';
 import { Appcontext } from '../Context/AppContext';
 import SendIcon from '@mui/icons-material/Send';
 export default function Chat() {
-  const [friendmessages, setFriendmessages] = useState([]);
-//   const scroll = useRef();
-  const {user} = useContext(Appcontext)
-  useEffect(() => {
-    const q = query(collection(db, 'friendmessages'), orderBy('timestamp'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let friendmessages = [];
-      querySnapshot.forEach((doc) => {
-        friendmessages.push({ ...doc.data(), id: doc.id });
-      });
-      setFriendmessages(friendmessages);
-    });
-    return () => unsubscribe();
-  }, []);
+   const Nav = useNavigate()
+  const {user , friendmessages , setInput , input , sendMessage} = useContext(Appcontext)
 
-  const [input, setInput] = useState('');
-
-  const sendMessage = async (e) => {
-    e.preventDefault();
-    if (input === '') {
-      toast.error('Enter a valid message');
-      return;
+    const goto = ()=>{
+      Nav('/match')
     }
-    const { uid, displayName } = auth.currentUser;
-    await addDoc(collection(db, 'friendmessages'), {
-      text: input,
-      name: displayName,
-      uid,
-      timestamp: serverTimestamp(),
-    });
-    setInput('');
-    // scroll.current.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
   <>
     <ToastContainer />
     {user ? (
-        <Box sx={{ backgroundColor: "#bdc3d1",
-            backgroundImage: 
-                "radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(240.00, 21%, 80%) 0, transparent 55%)", height: '100%',
+        <Box sx={{  backgroundColor: '#111927',
+        backgroundImage:
+          'radial-gradient(at 47% 33%, hsl(0.00, 71%, 60%) 0, transparent 59%), radial-gradient(at 82% 65%, hsl(218.18, 39%, 11%) 0, transparent 55%)', height: '100%',
           minHeight:"100vh"}}>
-            <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" }}> <Link to='/match' style={{textDecoration:"none"}}><Fab className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}> <img src={couple} alt="" width={40}  /></Fab></Link> </Box>
+            <Box className="floating-button"  sx={{position:"sticky" , bottom:"0%" , left:"100%" }}><Fab onClick={goto} className='body1' variant='contained' sx={{gap:"5px" , display:"flex" , borderRadius:"15px" , fontWeight:"700" , fontSize:"20px" , background:"#e25252 !important", opacity:{sm:"1" , xs:"0.7"}}}> <img src={couple} alt="" width={40}  /></Fab></Box>
     <Box
       sx={{
         display: 'flex',
@@ -78,7 +42,7 @@ export default function Chat() {
             alignItems: 'center',
             justifyContent: 'space-between',
             backdropFilter: 'blur(16px) saturate(180%)',
-            background: 'rgba(188, 189, 201, 0.75)',
+            background: 'rgba(0, 0, 0, 0.50)',
           }}
         >
           <Card
@@ -90,7 +54,7 @@ export default function Chat() {
               height:"auto",
               justifyContent: 'center',
               backdropFilter: 'blur(16px) saturate(180%)',
-              background: 'rgba(188, 189, 201, 0.75)',
+              background: 'rgba(0, 0, 0, 0.50)',
             }}
           >
             <CardContent
@@ -103,14 +67,14 @@ export default function Chat() {
             >
               <Box sx={{ display: 'flex', gap: '0.2em', alignItems: 'center' }}>
                 <Avatar />
-                <Typography className='body1' sx={{ color: '#000', fontSize:{sm:"18px" , xs:"17px"} }}>
+                <Typography className='body1' sx={{ color: '#fff', fontSize:{sm:"18px" , xs:"17px"} }}>
                   {user.displayName}
                 </Typography>
               </Box>
               <Typography
                 className='logo'
                 sx={{
-                  color: '#000',
+                  color: '#fff',
                   fontWeight: '700',
                   fontSize: { sm: '29px !important', xs: '20px !important' },
                   whiteSpace: 'nowrap',
@@ -151,7 +115,7 @@ export default function Chat() {
                   >
                     {friendmessage.timestamp && friendmessage.timestamp.toDate().toLocaleTimeString()}
                   </Typography>
-                  <Typography className='body1' sx={{ margin: '0 0.5em' , color:"#252525" , opacity:"0.7" }}>
+                  <Typography className='body1' sx={{ margin: '0 0.5em' , color:"#d2d2d2" , opacity:"0.7" }}>
                     {friendmessage.name}
                   </Typography>
                   <Typography
