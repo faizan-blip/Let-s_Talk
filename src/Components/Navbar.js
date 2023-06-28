@@ -22,8 +22,6 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Appcontext } from '../Context/AppContext';
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Features'];
-
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,13 +29,7 @@ function DrawerAppBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const handleScrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      handleDrawerToggle();
-    }
-  };
+
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -51,14 +43,25 @@ function DrawerAppBar(props) {
           </Box>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding className='body'>
-            <ListItemButton sx={{ textAlign: 'center' }}  >
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+            <ListItem sx={{display:"flex" , gap:"0.5em" , flexDirection:"column"}}>
+              <ListItemButton>
+                <ListItemText>
+                  <a href="/#home" className='body1' style={{textDecoration:"none" , color:"#fff" , fontWeight:"700" , fontSize:"17px"}}>Home</a>
+                </ListItemText>
+              </ListItemButton>
+
+              <ListItemButton>
+                <ListItemText>
+                  <a href="/#about" className='body1' style={{textDecoration:"none" , color:"#fff" , fontWeight:"700" , fontSize:"17px"}}>About</a>
+                </ListItemText>
+              </ListItemButton>
+              <ListItemButton>
+                <ListItemText>
+                  <a href="/#feature" className='body1' style={{textDecoration:"none" , color:"#fff" , fontWeight:"700" , fontSize:"17px"}}>Feature</a>
+                </ListItemText>
+              </ListItemButton>
+            </ListItem>
+           </List>
     </Box>
   );
 
@@ -101,12 +104,26 @@ function DrawerAppBar(props) {
           </Box>
           <Box sx={{display:"flex" , alignItems:"center"}}>
           <Box className='nav' sx={{marginRight:{md:"0 8em" , xs:"0em"}}}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' , padding:{md:"0 1.4em" , xs:"0 0.8em"} , textTransform:"none" }} className='body'  onClick={() => handleScrollToSection(item.toLowerCase())}>
-                {item}
-              </Button>
-            ))}
+           <List>
+            <ListItem sx={{display:"flex" , gap:"0.5em"}}>
+              <ListItemButton>
+                <ListItemText>
+                  <a href="/#home" className='body1' style={{textDecoration:"none" , color:"#fff" , fontWeight:"700" , fontSize:"17px"}}>Home</a>
+                </ListItemText>
+              </ListItemButton>
 
+              <ListItemButton>
+                <ListItemText>
+                  <a href="/#about" className='body1' style={{textDecoration:"none" , color:"#fff" , fontWeight:"700" , fontSize:"17px"}}>About</a>
+                </ListItemText>
+              </ListItemButton>
+              <ListItemButton>
+                <ListItemText>
+                  <a href="/#feature" className='body1' style={{textDecoration:"none" , color:"#fff" , fontWeight:"700" , fontSize:"17px"}}>Feature</a>
+                </ListItemText>
+              </ListItemButton>
+            </ListItem>
+           </List>
           </Box>
           <Box sx={{display:"flex" , gap:"20px"}}>
           {

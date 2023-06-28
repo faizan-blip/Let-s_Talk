@@ -7,6 +7,7 @@ import about2 from './Images/about2.png'
 export default function About() {
   return (
     <>
+    <div id='about'>
    <Box sx={{background:"#e6efee" ,  height:{lg:"100vh" , xs:"auto"}, display:"flex" , justifyContent:"space-evenly" , alignItems:"center" , flexWrap:{xl:"nowrap" , lg:"nowrap" , xs:"wrap"} , padding:"1.5em 0"}}>
           <img src={about} alt="" width={800} className='img' />
           <Box sx={{display:"flex" , flexDirection:"column" , gap:"15px" , width:{xl:"45%" , xs:"auto" , lg:"40%"} , marginRight:{lg:"5em" , xs:"0em"} , alignContent:"center"}}>
@@ -27,6 +28,7 @@ export default function About() {
             </Box>
           </Box>
     </Box> 
+    </div>
     </>
   )
 }

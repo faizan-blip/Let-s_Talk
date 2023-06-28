@@ -19,6 +19,7 @@ useEffect(()=>{
 
   return (
     <>
+    <div id='home'>
     <ToastContainer/>
     <Box sx={{display:"flex" , alignItems:"center" , height:{lg:"100vh" , xs:"auto"}, justifyContent:{lg:"space-between !important" , xs:"center !important"} , flexWrap:{ld:"nowrap" , xs:"wrap-reverse"} , background:"#16171f"}}>
         <Box  sx={{display:"flex"  , justifyContent:"center" , flexDirection:"column" , paddingLeft:{md:"5em" ,xs:"0.5em"} , marginBottom:"1.5em" }}>
@@ -29,6 +30,7 @@ useEffect(()=>{
     </Box>
          <img src={landing} alt="can't load...." width={550}className='img' />   
     </Box>
+    </div>
     </>
   )
 }

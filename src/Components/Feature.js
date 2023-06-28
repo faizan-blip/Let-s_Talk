@@ -17,6 +17,7 @@ export default function Feature() {
     
   return (
     <>
+    <div id='feature'>
     <Box sx={{background:"#16171f" ,  height:"auto" , padding:"2em 0.7em" , display:"flex" , justifyContent:"center" , alignItems:"center" , flexDirection:{lg:"row" , xs:"column-reverse"}}}>
     <Box >
       <Box sx={{display:"flex" , justifyContent:"center" , alignItems:"center" , gap:"1.5em", flexWrap:"wrap" , width:{xl:"90%" , xs:"auto"}}}>
@@ -34,6 +35,7 @@ export default function Feature() {
  <img src={feature} alt="" width={700} className='img'  />
  </Box>
     </Box>
+    </div>
     </>
   )
 }
