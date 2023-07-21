@@ -1,1 +1,2 @@
 Designed and developed visually appealing website with match section, enhancing user connections based on likelihood.Integrated Firebase for secure user authentication, enabling seamless login and signup with Google Authentication and created separate chat rooms for love and friends, facilitating meaningful interactions.
+![lets talk](https://github.com/faizan-blip/Let-s_Talk/assets/100079631/cbe2094b-37c5-4b86-a7e1-da119db87d4c)
